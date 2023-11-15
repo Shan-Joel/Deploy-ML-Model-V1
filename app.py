@@ -239,5 +239,6 @@ if __name__ == "__main__":
     # New one
     openai.api_key = os.getenv("OPENAI_KEY")
     
+    # app.run(debug=True)
     app.run(debug=True)
     
