@@ -1,1 +1,0 @@
-https://fake-job-detector-model.onrender.com/analyze_job
