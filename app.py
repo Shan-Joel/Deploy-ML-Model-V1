@@ -15,7 +15,6 @@ import os
 # # Load environment variables from the .env file
 # load_dotenv()
 
-api_key = os.getenv("OPENAI_KEY")
 
 def extract_job_details(input):
 
@@ -238,7 +237,7 @@ if __name__ == "__main__":
     # openai.api_key = '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'
 
     # New one
-    openai.api_key = api_key
+    openai.api_key = os.getenv("OPENAI_KEY")
     
     app.run(debug=True)
     
