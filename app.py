@@ -197,6 +197,7 @@ app = Flask(__name__)
 def analyze_job():
     # # Get the input data from the POST request
     data = request.get_json()
+    print('Received POST request with data:', data)
     job_description = data['job_description']
 
     # # Run the function on the input data
