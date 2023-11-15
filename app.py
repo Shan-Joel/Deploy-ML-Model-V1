@@ -15,11 +15,7 @@ import os
 # Load environment variables from the .env file
 load_dotenv()
 
-
 def extract_job_details(input):
-
-
-    
 
     # Set up the messages for the chat-based model
     messages = [
@@ -42,7 +38,6 @@ def extract_job_details(input):
     # ... [Your parsing and DataFrame integration code here]
 
     return(assistant_reply)
-
 
 def data_preprocessing(input):
 
@@ -114,7 +109,6 @@ def data_preprocessing(input):
 
 def detect_red_flags_gpt3_turbo(job_description):
 
-    
     # Designing the conversation for GPT-3.5-turbo
     conversation = {
         "messages": [
@@ -136,8 +130,7 @@ def detect_red_flags_gpt3_turbo(job_description):
     #     return "Potential fake job"
     # else:
     #     return "Likely real job"
-
-    
+ 
 def construct_encodings(x, tkzr, max_len, trucation=True, padding=True):
     return tkzr(x, max_length=max_len, truncation=trucation, padding=padding)
 
@@ -179,18 +172,14 @@ def classify_job(input):
     else:
         return "Fake Job :("
     
-
-
-
 def job_cls(input_test):
     if detect_red_flags_gpt3_turbo(input_test) == 'yes':
         return("fake job")
     else:
         return classify_job(input_test)
 
-
 app = Flask(__name__)
-
+CORS(app)  # Apply CORS to your Flask app
 
 @app.route('/analyze_job', methods=['POST'])
 def analyze_job():
@@ -214,27 +203,7 @@ def analyze_job():
 def home():
     return "Hi there!"
 
-
-
 if __name__ == "__main__":
-
-    # # Initialize the OpenAI API with your API key
-    # openai.api_key = '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'
-
-    # sample_text = input("Enter the job-related tweet to be analyzed: ")
-
-
-    # # print(detect_red_flags_gpt3_turbo(sample_text))
-
-    # # print(classify_job(sample_text))
-    # print(job_cls(sample_text))
-
-    # Initialize the OpenAI API with your API key
-    # openai.api_key = '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'
-    # openai.api_key = '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'
-    # openai.api_key = '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'
-    # openai.api_key = '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'
-    # openai.api_key = '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'
 
     # New one
     openai.api_key = os.getenv("OPENAI_KEY")
