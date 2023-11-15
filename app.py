@@ -12,8 +12,8 @@ from flask_cors import CORS
 from dotenv import load_dotenv
 import os
 
-# # Load environment variables from the .env file
-# load_dotenv()
+# Load environment variables from the .env file
+load_dotenv()
 
 
 def extract_job_details(input):
