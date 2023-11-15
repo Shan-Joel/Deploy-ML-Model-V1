@@ -190,11 +190,7 @@ def job_cls(input_test):
         return classify_job(input_test)
 
 
-
 app = Flask(__name__)
-
-# Configure CORS to allow requests from http://localhost:3000
-CORS(app, resources={r"/analyze_job": {"origins": "http://localhost:3000"}})
 
 
 @app.route('/analyze_job', methods=['POST'])
