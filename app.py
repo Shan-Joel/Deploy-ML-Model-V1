@@ -9,7 +9,13 @@ from transformers import DistilBertTokenizer, TFDistilBertForSequenceClassificat
 from flask import Flask, request, jsonify
 from flask import Flask
 from flask_cors import CORS
+from dotenv import load_dotenv
+import os
 
+# Load environment variables from the .env file
+load_dotenv()
+
+api_key = os.environ.get("OPENAI_KEY")
 
 def extract_job_details(input):
 
@@ -235,7 +241,7 @@ if __name__ == "__main__":
     # openai.api_key = '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'
 
     # New one
-    openai.api_key = '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'
+    openai.api_key = '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'
     
     app.run(debug=True)
     
